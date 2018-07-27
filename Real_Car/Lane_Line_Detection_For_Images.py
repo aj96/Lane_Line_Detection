@@ -582,7 +582,7 @@ def process_image(image):
         right_fit = np.polyfit(ploty,right_fitx,2)
                 
     else:
-        right_fit = [0,image.shape[1]]
+        right_fit = [0,0,image.shape[1]]
 
     """Visualize results and calculate radii of curvature and ceter offset"""
     
@@ -631,11 +631,11 @@ def process_image(image):
     right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])
 
     # Define conversions in x and y from pixels space to meters
-    ym_per_pix = 30/720 # meters per pixel in y dimension
-    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    ym_per_pix = 30.0/720.0 # meters per pixel in y dimension
+    xm_per_pix = 3.7/700.0 # meters per pixel in x dimension
 
-    yinches_per_pix = 8/480
-    xinches_per_pix = 5/640
+    yinches_per_pix = 8.0/480.0
+    xinches_per_pix = 5.0/640.0
 
     # Fit new polynomials to x,y in world space
     if (((len(lefty) != 0) & (len(leftx) != 0))):
